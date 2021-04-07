@@ -1,4 +1,4 @@
-package com.abcproduct.app;
+package com.abcproduct.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,18 +9,17 @@ import com.abcproduct.domain.model.TestItemModel;
 import com.abcproduct.domain.repository.TestItemRepository;
 
 @Controller
-public class HelloController {
+public class TestController {
 
 	/* (1) */
     @Autowired
     TestItemRepository testItemRepository;
 
-    @GetMapping("/")
+    @GetMapping("/test")
     public String test(Model model) {
         /* (2) */
         TestItemModel testItemModel = testItemRepository.selectByPrimaryKey(1);
         model.addAttribute("testItem", testItemModel);
-        model.addAttribute("greeting", "Hello JINHYEOK!");
-        return "hello";
+        return "test";
     }
 }
