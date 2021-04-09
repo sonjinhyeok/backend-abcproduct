@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>AbcProduct</title>
+</head>
+<body>
+	<h1>Stock情報一覧</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>商品ID</th>
+				<th>倉庫ID</th>
+				<th>在庫数</th>
+				<th>入庫</th>
+				<th>出庫</th>
+			</tr>
+		</thead>
+		<tbody>
+ 			<tr th:each="stock : ${stockList}">
+		        <td th:text="${stock.product_id}">商品ID</td>
+		        <td th:text="${stock.warehouse_id}">倉庫ID</td>
+		        <td th:text="${stock.stock_count}">在庫数</td>
+				<!-- Boolean型のエラー発生のため、コメント処理
+｀				<td th:text="${stock.stock_in}">入庫</td>
+		        <td th:text="${stock.stock_out}">出庫</td>
+		        -->
+			</tr>
+	    </tbody>
+	</table>
+</body>
+</html>

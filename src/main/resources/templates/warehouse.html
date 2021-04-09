@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>AbcProduct</title>
+</head>
+<body>
+	<h1>Warehouse情報一覧</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>倉庫名</th>
+				<th>住所</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="warehouse : ${warehouseList}">
+		        <td th:text="${warehouse.warehouse_id}">warehouse_id</td>
+		        <td th:text="${warehouse.warehouse_name}">warehouse_name</td>
+		        <td th:text="${warehouse.warehouse_address}">warehouse_address</td>
+			</tr>
+	    </tbody>
+	</table>
+</body>
+</html>

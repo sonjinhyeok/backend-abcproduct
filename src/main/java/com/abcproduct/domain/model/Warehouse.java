@@ -2,14 +2,14 @@ package com.abcproduct.domain.model;
 
 public class Warehouse {
 
-	private String warehouse_id;
+	private int warehouse_id;
 	private String warehouse_name;
 	private String warehouse_address;
 
-	public String getWarehouse_id() {
+	public int getWarehouse_id() {
 		return warehouse_id;
 	}
-	public void setWarehouse_id(String warehouse_id) {
+	public void setWarehouse_id(int warehouse_id) {
 		this.warehouse_id = warehouse_id;
 	}
 	public String getWarehouse_name() {
