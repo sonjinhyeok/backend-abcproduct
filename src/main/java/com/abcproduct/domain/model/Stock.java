@@ -4,7 +4,7 @@ public class Stock {
     private int product_id;
     private int warehouse_id;
     private int stock_count;
-    private boolean stock_inl;
+    private boolean stock_in;
     private boolean stock_out;
 
 	public int getProduct_id() {
@@ -25,11 +25,11 @@ public class Stock {
 	public void setStock_count(int stock_count) {
 		this.stock_count = stock_count;
 	}
-	public boolean getStock_inl() {
-		return stock_inl;
+	public boolean getStock_in() {
+		return stock_in;
 	}
-	public void setStock_inl(boolean stock_inl) {
-		this.stock_inl = stock_inl;
+	public void setStock_in(boolean stock_in) {
+		this.stock_in = stock_in;
 	}
 	public boolean getStock_out() {
 		return stock_out;
