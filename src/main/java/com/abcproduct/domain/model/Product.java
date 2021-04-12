@@ -25,5 +25,4 @@ public class Product {
 		this.product_price = product_price;
 	}
 
-
 }
