@@ -1,7 +1,5 @@
 package com.abcproduct.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,51 +14,45 @@ public class StockController {
 	@Autowired
 	private StockRepository stockRepository;
 
-	//全体のデータ情報を照会する
+	// 全体のデータを表示する
 	@GetMapping("/stock")
-	public List<Stock> getStockList(Model model) {
-		List<Stock> stockList = stockRepository.getStockList();
-		model.addAttribute("stockList", stockList);
-		return stockList;
+	public String getStocks(Model model) {
+		Stock stock = stockRepository.selectByPrimaryKey(1);
+		model.addAttribute("stock", stock);
+		return "stock";
 	}
 
-//	//全体のデータ情報を照会する
-//	@GetMapping("/stock")
-//	public List<Stock> getStockList() {
-//		return stockRepository.getStockList();
-//	}
-
-//	//IDでデータ情報を照会する
-//	@GetMapping("/stock/{product_id}")
-//	public Stock getStock(@PathVariable("product_id") int product_id) {
-//		return stockRepository.getStock(product_id);
+//	// 全体のデータを照会するAPI
+//		@GetMapping("/product/all")
+//		public List<Product> getProductList() {
+//		    return productRepository.getProductList();
 //	}
 //
-//	//データ生成
-//	@PostMapping("/stock/{product_id}")
-//	public void insertStock(@PathVariable("product_id") int product_id,
-//							@RequestParam("warehouse_id") int warehouse_id,
-//							@RequestParam("stock_count") int stock_count,
-//							@RequestParam("stock_in") boolean stock_in,
-//							@RequestParam("stock_out") boolean stock_out) {
-//
-//		stockRepository.insertStock(product_id, warehouse_id, stock_count, stock_in, stock_out);
+//	// idが一致するデータを照会API
+//	@GetMapping("/product/{product_id}")
+//	public Product getProduct(@PathVariable("product_id") int product_id) {
+//		return productRepository.getProduct(product_id);
 //	}
 //
-//	//データ修正
-//	@PutMapping("/stock/{product_id}")
-//	public void updateStock(@PathVariable("product_id") int product_id,
-//							@RequestParam("warehouse_id") int warehouse_id,
-//							@RequestParam("stock_count") int stock_count,
-//							@RequestParam("stock_in") boolean stock_in,
-//							@RequestParam("stock_out") boolean stock_out) {
-//
-//		stockRepository.updateStock(product_id, warehouse_id, stock_count, stock_in, stock_out);
+//	// 生成
+//	@PostMapping("/product/{product_id}")
+//	public void insertProduct(@PathVariable("product_id") int product_id,
+//							  @RequestParam("product_name") String product_name,
+//							  @RequestParam("product_price") int product_price) {
+//		productRepository.insertProduct(product_id, product_name, product_price);
 //	}
 //
-//	//データ削除
-//	@DeleteMapping("/stock/{product_id}")
-//	public void deleteStock(@PathVariable("product_id") int product_id) {
-//		stockRepository.deleteStock(product_id);
+//	// 修正
+//	@PutMapping("/product/{product_id}")
+//	public void updateProduct(@PathVariable("product_id") int product_id,
+//							  @RequestParam("product_name") String product_name,
+//							  @RequestParam("product_price") int product_price) {
+//		productRepository.updateProduct(product_id, product_name, product_price);
+//	}
+//
+//	// 削除
+//	@DeleteMapping("/product/{product_id}")
+//	public void deleteProduct(@PathVariable("product_id") int product_id) {
+//		productRepository.deleteProduct(product_id);
 //	}
 }

@@ -6,22 +6,7 @@
 <title>AbcProduct</title>
 </head>
 <body>
-	<h1>Warehouse情報一覧</h1>
-	<table>
-		<thead>
-			<tr>
-				<th>ID</th>
-				<th>倉庫名</th>
-				<th>住所</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="warehouse : ${warehouseList}">
-		        <td th:text="${warehouse.warehouse_id}">warehouse_id</td>
-		        <td th:text="${warehouse.warehouse_name}">warehouse_name</td>
-		        <td th:text="${warehouse.warehouse_address}">warehouse_address</td>
-			</tr>
-	    </tbody>
-	</table>
+ 	<h1>Warehouse情報一覧</h1>
+    <h2 th:text="${warehouse}">warehouse</h2>
 </body>
 </html>

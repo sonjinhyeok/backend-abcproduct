@@ -12,14 +12,14 @@
 			<tr>
 				<th>ID</th>
 				<th>商品名</th>
+				<th>商品数</th>
 				<th>価格</th>
+				<th>倉庫名</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr th:each="product : ${productList}">
-		        <td th:text="${product.product_id}">ID</td>
-		        <td th:text="${product.product_name}">商品名</td>
-		        <td th:text="${product.product_price}">価格</td>
+			<tr>
+		        <td th:text="${product}">product</td>
 			</tr>
 	    </tbody>
 	</table>
