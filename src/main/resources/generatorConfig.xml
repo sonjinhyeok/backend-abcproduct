@@ -3,8 +3,8 @@
 <generatorConfiguration>
 <context id="abcproduct" targetRuntime="MyBatis3">
 	<property name="autoDelimitKeyWords" value="true" />
-    <property name="beginningDelimiter" value="[" />
-    <property name="endingDelimiter" value="]" />
+    <property name="beginningDelimiter" value="" />
+    <property name="endingDelimiter" value="" />
     <!-- JDBC接続情報 -->
     <jdbcConnection
 		connectionURL="jdbc:sqlserver://localhost:1433;databaseName=abcproduct"
@@ -15,82 +15,17 @@
 	<javaModelGenerator
 		targetPackage="com.abcproduct.domain.model"
 		targetProject="AbcProduct/src/main/java">
-		<property name="enableSubPackages" value="true" />
-		<property name="trimStrings" value="true" />
 	</javaModelGenerator>
 	<sqlMapGenerator
 		targetPackage="com.abcproduct.domain.repository"
 		targetProject="AbcProduct/src/main/resources">
-		<property name="enableSubPackages" value="true" />
 	</sqlMapGenerator>
 	<javaClientGenerator
 		targetPackage="com.abcproduct.domain.repository"
 		targetProject="AbcProduct/src/main/java" type="XMLMAPPER">
-		<property name="enableSubPackages" value="true" />
 	</javaClientGenerator>
-	<table tableName="test_item" domainObjectName="Testitem"
-		mapperName="TestitemRepository"
-		enableInsert="true"
-		enableSelectByPrimaryKey="true"
-		enableSelectByExample="true"
-		enableUpdateByPrimaryKey="true"
-		enableUpdateByExample="true"
-		enableDeleteByPrimaryKey="true"
-		enableDeleteByExample="true"
-		enableCountByExample="true"
-		selectByExampleQueryId="true"
-		modelType="flat" >
-		<columnRenamingRule searchString="^class$" replaceString="clazz"/>
-		<columnOverride column="id" delimitedColumnName="true"/>
-		<columnOverride column="name" delimitedColumnName="true"/>
-	</table>
-	<table tableName="product" domainObjectName="Product"
-		mapperName="ProductRepository"
-		enableInsert="true"
-		enableSelectByPrimaryKey="true"
-		enableSelectByExample="true"
-		enableUpdateByPrimaryKey="true"
-		enableUpdateByExample="true"
-		enableDeleteByPrimaryKey="true"
-		enableDeleteByExample="true"
-		enableCountByExample="true"
-		selectByExampleQueryId="true"
-		modelType="flat" >
-		<columnRenamingRule searchString="^class$" replaceString="clazz"/>
-		<columnOverride column="id" delimitedColumnName="true"/>
-		<columnOverride column="name" delimitedColumnName="true"/>
-	</table>
-	<table tableName="warehouse" domainObjectName="Warehouse"
-		mapperName="WarehouseRepository"
-		enableInsert="true"
-		enableSelectByPrimaryKey="true"
-		enableSelectByExample="true"
-		enableUpdateByPrimaryKey="true"
-		enableUpdateByExample="true"
-		enableDeleteByPrimaryKey="true"
-		enableDeleteByExample="true"
-		enableCountByExample="true"
-		selectByExampleQueryId="true"
-		modelType="flat" >
-		<columnRenamingRule searchString="^class$" replaceString="clazz"/>
-		<columnOverride column="id" delimitedColumnName="true"/>
-		<columnOverride column="name" delimitedColumnName="true"/>
-	</table>
-	<table tableName="stock" domainObjectName="Stock"
-		mapperName="StockRepository"
-		enableInsert="true"
-		enableSelectByPrimaryKey="true"
-		enableSelectByExample="true"
-		enableUpdateByPrimaryKey="true"
-		enableUpdateByExample="true"
-		enableDeleteByPrimaryKey="true"
-		enableDeleteByExample="true"
-		enableCountByExample="true"
-		selectByExampleQueryId="true"
-		modelType="flat" >
-		<columnRenamingRule searchString="^class$" replaceString="clazz"/>
-		<columnOverride column="id" delimitedColumnName="true"/>
-		<columnOverride column="name" delimitedColumnName="true"/>
-	</table>
+	<table tableName="product" domainObjectName="Product" mapperName="ProductRepository"/>
+	<table tableName="warehouse" domainObjectName="Warehouse" mapperName="WarehouseRepository"/>
+	<table tableName="stock" domainObjectName="Stock" mapperName="StockRepository"/>
     </context>
 </generatorConfiguration>
