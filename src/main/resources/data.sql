@@ -1,5 +1,6 @@
 USE abcproduct;
 
+DELETE FROM product;
 INSERT INTO
  product(product_id, product_name, product_price)
 VALUES
@@ -7,11 +8,13 @@ VALUES
  (4,N'DDD自動車',4000),(5,N'EEE自動車',5000),(6,N'FFF自動車',6000),
  (7,N'GGG自動車',7000),(8,N'HHH自動車',8000),(9,N'III自動車',9000), (10,N'JJJ自動車',9500)
 
+DELETE FROM warehouse;
 INSERT INTO
  warehouse(warehouse_id, warehouse_name, warehouse_address)
 VALUES
 (9001,N'東京倉庫',N'東京都千代田区1-1-1'),(9002,N'横浜倉庫',N'神奈川横浜市2-2-2'),(9003,N'吉祥寺倉庫',N'東京都武蔵野市3-3-3')
 
+DELETE FROM stock;
 INSERT INTO
  stock(product_id, warehouse_id, stock_count, stock_in, stock_out)
 VALUES

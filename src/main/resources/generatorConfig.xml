@@ -10,7 +10,7 @@
 		connectionURL="jdbc:sqlserver://localhost:1433;databaseName=abcproduct"
 		driverClass="com.microsoft.sqlserver.jdbc.SQLServerDriver"
 		password="Wlsgur123!"
-		userId="sa" />
+		userId="SA" />
 	<!-- 自動生成されるModelクラス-->
 	<javaModelGenerator
 		targetPackage="com.abcproduct.domain.model"
