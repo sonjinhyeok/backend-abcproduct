@@ -27,5 +27,6 @@
 	<table tableName="product" domainObjectName="Product" mapperName="ProductRepository"/>
 	<table tableName="warehouse" domainObjectName="Warehouse" mapperName="WarehouseRepository"/>
 	<table tableName="stock" domainObjectName="Stock" mapperName="StockRepository"/>
+	<table tableName="info" domainObjectName="Info" mapperName="InfoRepository"/>
     </context>
 </generatorConfiguration>

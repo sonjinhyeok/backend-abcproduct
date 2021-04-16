@@ -1,12 +1,22 @@
 USE abcproduct;
 
+DELETE FROM info;
+INSERT INTO
+ info(product_id, product_name, product_price, stock_count, warehouse_name)
+VALUES
+ (1,N'AAA自動車',1000,100,N'東京倉庫'),(2,N'BBB自動車',2000,200,N'横浜倉庫'),(3,N'CCC自動車',3000,300,N'吉祥寺東京'),
+ (4,N'DDD自動車',4000,150,N'東京倉庫'),(5,N'EEE自動車',5000,250,N'横浜倉庫'),(6,N'FFF自動車',6000,350,N'吉祥寺東京'),
+ (7,N'GGG自動車',7000,200,N'東京倉庫'),(8,N'HHH自動車',8000,300,N'横浜倉庫'),(9,N'III自動車',9000,400,N'吉祥寺東京'),
+ (10,N'JJJ自動車',9500,250,N'東京倉庫')
+
 DELETE FROM product;
 INSERT INTO
  product(product_id, product_name, product_price)
 VALUES
  (1,N'AAA自動車',1000),(2,N'BBB自動車',2000),(3,N'CCC自動車',3000),
  (4,N'DDD自動車',4000),(5,N'EEE自動車',5000),(6,N'FFF自動車',6000),
- (7,N'GGG自動車',7000),(8,N'HHH自動車',8000),(9,N'III自動車',9000), (10,N'JJJ自動車',9500)
+ (7,N'GGG自動車',7000),(8,N'HHH自動車',8000),(9,N'III自動車',9000),
+ (10,N'JJJ自動車',9500)
 
 DELETE FROM warehouse;
 INSERT INTO

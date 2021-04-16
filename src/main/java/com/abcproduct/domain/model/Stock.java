@@ -1,7 +1,5 @@
 package com.abcproduct.domain.model;
 
-import java.util.List;
-
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -17,7 +15,7 @@ public class Stock {
     private boolean stockIn;
     private boolean stockOut;
 
-    /** 子要素を複数持つ */
-    private List<Product> products;
-    private List<Warehouse> warehouses;
+//    /** 子要素を複数持つ */
+//    private List<Product> products;
+//    private List<Warehouse> warehouses;
 }

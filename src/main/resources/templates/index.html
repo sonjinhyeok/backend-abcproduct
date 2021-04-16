@@ -14,12 +14,12 @@
             <th>在庫数</th>
             <th>倉庫名</th>
         </tr>
-		<tr th:each="stock : ${stock}">
-			<td th:text="${stock.productId}"></td>
-			<td th:text="${stock.products.get(0).productName}"></td>
-			<td th:text="${stock.products.get(0).productPrice} + ' ' + 万円"></td>
-			<td th:text="${stock.stockCount} + ' ' +台"></td>
-			<td th:text="${stock.warehouses.get(0).warehouseName}"></td>
+		<tr th:each="info : ${info}">
+			<td th:text="${info.productId}"></td>
+			<td th:text="${info.productName}"></td>
+			<td th:text="${info.productPrice} + ' ' + 万円"></td>
+			<td th:text="${info.stockCount} + ' ' +台"></td>
+			<td th:text="${info.warehouseName}"></td>
         </tr>
     </table>
 </body>

@@ -3,10 +3,19 @@ IF NOT EXISTS (SELECT * FROM master.dbo.sysdatabases WHERE name='abcproduct')
 
 USE abcproduct;
 
+IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='info' AND xtype='U')
+	CREATE TABLE info(
+		[product_id] [INT] NOT NULL PRIMARY KEY,
+		[product_name] [NVARCHAR](50),
+		[product_price] [INT],
+		[stock_count] [INT],
+		[warehouse_name] [NVARCHAR](50)
+	)
+
 IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='product' AND xtype='U')
 	CREATE TABLE product(
     	[product_id] [INT] NOT NULL PRIMARY KEY,
-	    [product_name] [NVARCHAR](50),
+	    [product_name] [NVARCHAR](50) NOT NULL,
     	[product_price] [INT]
 	)
 
