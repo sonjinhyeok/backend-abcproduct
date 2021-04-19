@@ -22,5 +22,15 @@
 			<td th:text="${info.warehouseName}"></td>
         </tr>
     </table>
+    <ul>
+    <li th:text="${pages.getPageSize()}"></li>
+    <li th:text="${pages.getPageNum()}"></li>
+	<li th:text="${pages.getStartRow()}"></li>
+	<li th:text="${pages.getEndRow()}"></li>
+	<li th:text="${pages.getTotal()}"></li>
+	<li th:text="${pages.getPages()}"></li>
+
+
+    </ul>
 </body>
 </html>
