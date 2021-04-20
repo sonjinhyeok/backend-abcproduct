@@ -3,30 +3,29 @@
 <mapper namespace="com.abcproduct.domain.repository.StockRepository">
 
 	<select id="selectStockList"
-		parameterType="com.abcproduct.domain.paging.Criteria"
 		resultMap="BaseResultMap">
 		SELECT
 			*
 		FROM stock
 		INNER JOIN product ON stock.product_id = product.product_id
 		INNER JOIN warehouse ON stock.warehouse_id = warehouse.warehouse_id
-		ORDER BY stock.product_id
-		OFFSET #{startPage} ROWS
-		FETCH NEXT #{recordsPerPage} ROWS ONLY;
+
 	</select>
 
-	<select id="selectBoardTotalCount"
-		parameterType="com.abcproduct.domain.paging.Criteria"
-		resultType="com.abcproduct.domain.model.Stock">
+	<select id="selectStockId"
+		resultMap="BaseResultMap">
 		SELECT
-			COUNT(*)
+			*
 		FROM stock
 		INNER JOIN product ON stock.product_id = product.product_id
 		INNER JOIN warehouse ON stock.warehouse_id = warehouse.warehouse_id
+		WHERE stock.product_id = #{product_id}
 	</select>
 
+
+
  	<resultMap type="com.abcproduct.domain.model.Stock" id="BaseResultMap" >
-    	<result column="product_id" property="productId" />
+    	<id column="product_id" property="productId" />
     	<result column="warehouse_id" property="warehouseId" />
     	<result column="stock_count" property="stockCount" />
     	<result column="stock_in" property="stockIn" />
