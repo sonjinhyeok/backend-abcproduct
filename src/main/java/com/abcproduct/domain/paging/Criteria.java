@@ -25,7 +25,7 @@ public class Criteria {
 	public Criteria() {
 		this.currentPageNo = 1;
 		this.recordsPerPage = 5;
-		this.pageSize = 5;
+		this.pageSize = 3;
 	}
 
 	public int getStartPage() {

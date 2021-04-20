@@ -6,7 +6,7 @@
 		parameterType="com.abcproduct.domain.paging.Criteria"
 		resultMap="BaseResultMap">
 		SELECT
-			product.product_id,product.product_name,product.product_price, stock.stock_count, warehouse.warehouse_name
+			*
 		FROM stock
 		INNER JOIN product ON stock.product_id = product.product_id
 		INNER JOIN warehouse ON stock.warehouse_id = warehouse.warehouse_id
@@ -25,12 +25,12 @@
 		INNER JOIN warehouse ON stock.warehouse_id = warehouse.warehouse_id
 	</select>
 
-  <resultMap type="com.abcproduct.domain.model.Stock" id="BaseResultMap" >
-    <result column="product_id" property="productId" />
-    <result column="warehouse_id" property="warehouseId" />
-    <result column="stock_count" property="stockCount" />
-    <result column="stock_in" property="stockIn" />
-    <result column="stock_out" property="stockOut" />
+ 	<resultMap type="com.abcproduct.domain.model.Stock" id="BaseResultMap" >
+    	<result column="product_id" property="productId" />
+    	<result column="warehouse_id" property="warehouseId" />
+    	<result column="stock_count" property="stockCount" />
+    	<result column="stock_in" property="stockIn" />
+    	<result column="stock_out" property="stockOut" />
 	<collection property="products" ofType="com.abcproduct.domain.model.Product">
 		<result column="product_id" property="productId" />
     	<result column="product_name" property="productName" />
@@ -44,3 +44,5 @@
   </resultMap>
 
 </mapper>
+
+

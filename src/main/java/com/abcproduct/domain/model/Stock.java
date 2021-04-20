@@ -17,7 +17,7 @@ public class Stock {
     private boolean stockIn;
     private boolean stockOut;
 
-    /** 子要素を複数持つ */
+    /** 子要素を持つ */
     private List<Product> products;
     private List<Warehouse> warehouses;
 }

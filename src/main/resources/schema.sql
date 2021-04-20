@@ -19,7 +19,7 @@ IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='warehouse' AND xtype='U')
 
 IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='stock' AND xtype='U')
 	CREATE TABLE stock(
-    	[product_id] [INT] NOT NULL,
+    	[product_id] [INT] NOT NULL PRIMARY KEY,
     	[warehouse_id] [INT] NOT NULL,
 	    [stock_count] [INT] NOT NULL,
     	[stock_in] [BIT],
