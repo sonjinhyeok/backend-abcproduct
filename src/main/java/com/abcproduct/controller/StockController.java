@@ -25,7 +25,7 @@ public class StockController {
 		return stock;
 	}
 
-	@GetMapping("/stock/{product_id}")
+	@GetMapping("/detail/{product_id}")
 	public List<Stock> getStock(@PathVariable("product_id") int product_id, Model model) {
 		List<Stock> stock = mapper.selectStockId(product_id);
 		model.addAttribute("stock", stock);
