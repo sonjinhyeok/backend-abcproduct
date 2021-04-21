@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.abcproduct.domain.repository.StockRepository">
+<<<<<<< Updated upstream
   <resultMap id="BaseResultMap" type="com.abcproduct.domain.model.Stock">
     <!--
       WARNING - @mbg.generated
@@ -12,6 +13,61 @@
     <result column="stock_count" jdbcType="INTEGER" property="stockCount" />
     <result column="stock_in" jdbcType="BIT" property="stockIn" />
     <result column="stock_out" jdbcType="BIT" property="stockOut" />
+=======
+
+	<select id="selectStockList" resultMap="BaseResultMap">
+		SELECT
+			*
+		FROM stock
+		INNER JOIN product ON stock.product_id = product.product_id
+		INNER JOIN warehouse ON stock.warehouse_id = warehouse.warehouse_id
+
+	</select>
+
+	<select id="selectStock" resultMap="BaseResultMap">
+		SELECT
+			*
+		FROM stock
+		INNER JOIN product ON stock.product_id = product.product_id
+		INNER JOIN warehouse ON stock.warehouse_id = warehouse.warehouse_id
+		WHERE stock.product_id = #{productId}
+	</select>
+
+	<select id="stockSearch" resultMap="BaseResultMap">
+
+		SELECT
+			*
+		FROM stock
+		INNER JOIN product ON stock.product_id = product.product_id
+		INNER JOIN warehouse ON stock.warehouse_id = warehouse.warehouse_id
+		WHERE stock.product_id
+		LIKE N'${keyword}'
+		OR product.product_name
+		LIKE N'%${keyword}%'
+		OR warehouse.warehouse_name
+		LIKE N'%${keyword}%'
+
+	</select>
+
+
+
+ 	<resultMap type="com.abcproduct.domain.model.Stock" id="BaseResultMap" >
+    	<id column="product_id" property="productId" />
+    	<result column="warehouse_id" property="warehouseId" />
+    	<result column="stock_count" property="stockCount" />
+    	<result column="stock_in" property="stockIn" />
+    	<result column="stock_out" property="stockOut" />
+	<collection property="products" ofType="com.abcproduct.domain.model.Product">
+		<result column="product_id" property="productId" />
+    	<result column="product_name" property="productName" />
+    	<result column="product_price" property="productPrice" />
+	</collection>
+	<collection property="warehouses" ofType="com.abcproduct.domain.model.Warehouse">
+		<result column="warehouse_id" property="warehouseId" />
+    	<result column="warehouse_name" property="warehouseName" />
+    	<result column="warehouse_address" property="warehouseAddress" />
+	</collection>
+>>>>>>> Stashed changes
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--
