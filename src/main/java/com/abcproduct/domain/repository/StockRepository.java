@@ -12,7 +12,7 @@ public interface StockRepository {
 
 	public List<Stock> selectStockList();
 
-	public List<Stock> selectStockId(@Param("product_id") int product_id);
+	public List<Stock> selectStockId(@Param("productId") int productId);
 
 	public int selectStockTotalCount();
 

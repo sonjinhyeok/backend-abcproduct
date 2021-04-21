@@ -19,7 +19,7 @@
 		FROM stock
 		INNER JOIN product ON stock.product_id = product.product_id
 		INNER JOIN warehouse ON stock.warehouse_id = warehouse.warehouse_id
-		WHERE stock.product_id = #{product_id}
+		WHERE stock.product_id = #{productId}
 	</select>
 
 
