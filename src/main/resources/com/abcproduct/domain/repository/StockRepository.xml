@@ -2,8 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.abcproduct.domain.repository.StockRepository">
 
-	<select id="selectStockList"
-		resultMap="BaseResultMap">
+	<select id="selectStockList" resultMap="BaseResultMap">
 		SELECT
 			*
 		FROM stock
@@ -12,8 +11,7 @@
 
 	</select>
 
-	<select id="selectStockId"
-		resultMap="BaseResultMap">
+	<select id="selectStock" resultMap="BaseResultMap">
 		SELECT
 			*
 		FROM stock
