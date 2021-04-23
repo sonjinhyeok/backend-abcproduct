@@ -8,7 +8,6 @@
 		FROM stock
 		INNER JOIN product ON stock.product_id = product.product_id
 		INNER JOIN warehouse ON stock.warehouse_id = warehouse.warehouse_id
-
 	</select>
 
 	<select id="selectStock" resultMap="BaseResultMap">
@@ -20,7 +19,19 @@
 		WHERE stock.product_id = #{productId}
 	</select>
 
-
+	<select id="stockSearch" resultMap="BaseResultMap">
+		SELECT
+			*
+		FROM stock
+		INNER JOIN product ON stock.product_id = product.product_id
+		INNER JOIN warehouse ON stock.warehouse_id = warehouse.warehouse_id
+		WHERE stock.product_id
+		LIKE N'${keyword}'
+		OR product.product_name
+		LIKE N'%${keyword}%'
+		OR warehouse.warehouse_name
+		LIKE N'%${keyword}%'
+	</select>
 
  	<resultMap type="com.abcproduct.domain.model.Stock" id="BaseResultMap" >
     	<id column="product_id" property="productId" />

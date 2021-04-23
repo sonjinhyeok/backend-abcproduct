@@ -14,6 +14,6 @@ public interface StockRepository {
 
 	public List<Stock> selectStock(@PathVariable("productId") int productId);
 
-	public int selectStockTotalCount();
+	public List<Stock> stockSearch(@PathVariable("keyword") String keyword);
 
 }

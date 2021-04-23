@@ -25,11 +25,20 @@ public class StockController {
 		return stock;
 	}
 
-	@GetMapping("/stock/{productId}")
+	@GetMapping("/stock/detail/{productId}")
 	public List<Stock> getStock(@PathVariable("productId") int productId, Model model) {
 		List<Stock> stock = mapper.selectStock(productId);
 		model.addAttribute("stock", stock);
 		return stock;
 	}
+
+	@GetMapping("/stock/{keyword}")
+	public List<Stock> getResult(@PathVariable("keyword") String keyword, Model model) {
+		List<Stock> stock = mapper.stockSearch(keyword);
+		model.addAttribute("stock", stock);
+		return stock;
+	}
+
+
 
 }
