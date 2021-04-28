@@ -2,55 +2,89 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.abcproduct.domain.repository.StockRepository">
 
-	<select id="selectStockList" resultMap="BaseResultMap">
+ 	<select id="selectStockList" resultMap="BaseResultMap">
 		SELECT
 			*
-		FROM stock
-		INNER JOIN product ON stock.product_id = product.product_id
-		INNER JOIN warehouse ON stock.warehouse_id = warehouse.warehouse_id
+		FROM
+			stock
+		INNER JOIN
+			 product
+		ON
+			stock.product_id = product.product_id
+		INNER JOIN
+			 warehouse
+		ON
+			stock.warehouse_id = warehouse.warehouse_id
+		ORDER BY
+			stock.product_id DESC;
 	</select>
 
 	<select id="selectStock" resultMap="BaseResultMap">
 		SELECT
 			*
-		FROM stock
-		INNER JOIN product ON stock.product_id = product.product_id
-		INNER JOIN warehouse ON stock.warehouse_id = warehouse.warehouse_id
-		WHERE stock.product_id = #{productId}
+		FROM
+			stock
+ 		INNER JOIN
+			product
+		ON
+			stock.product_id = product.product_id
+		INNER JOIN
+			warehouse
+		ON
+			stock.warehouse_id = warehouse.warehouse_id
+		WHERE
+			stock.product_id = #{productId}
 	</select>
 
 	<select id="stockSearch" resultMap="BaseResultMap">
 		SELECT
 			*
-		FROM stock
-		INNER JOIN product ON stock.product_id = product.product_id
-		INNER JOIN warehouse ON stock.warehouse_id = warehouse.warehouse_id
-		WHERE stock.product_id
-		LIKE N'${keyword}'
-		OR product.product_name
-		LIKE N'%${keyword}%'
-		OR warehouse.warehouse_name
-		LIKE N'%${keyword}%'
+		FROM
+			stock
+		INNER JOIN
+			product
+		ON
+			stock.product_id = product.product_id
+		INNER JOIN
+			warehouse
+		ON
+			stock.warehouse_id = warehouse.warehouse_id
+		WHERE
+			product.product_name
+		LIKE
+			N'%${keyword}%'
+		OR
+			warehouse.warehouse_name
+		LIKE
+			N'%${keyword}%'
 	</select>
 
- 	<resultMap type="com.abcproduct.domain.model.Stock" id="BaseResultMap" >
+	<select id="deleteStock" resultMap="BaseResultMap">
+		DELETE FROM
+    		stock
+		WHERE
+			product_id = #{productId}
+	</select>
+
+	<select id="insertStock" resultMap="BaseResultMap">
+
+	</select>
+
+	<resultMap type="com.abcproduct.domain.model.Stock" id="BaseResultMap" >
     	<id column="product_id" property="productId" />
     	<result column="warehouse_id" property="warehouseId" />
     	<result column="stock_count" property="stockCount" />
     	<result column="stock_in" property="stockIn" />
     	<result column="stock_out" property="stockOut" />
 	<collection property="products" ofType="com.abcproduct.domain.model.Product">
-		<result column="product_id" property="productId" />
+		<id column="product_id" property="productId" />
     	<result column="product_name" property="productName" />
     	<result column="product_price" property="productPrice" />
 	</collection>
 	<collection property="warehouses" ofType="com.abcproduct.domain.model.Warehouse">
-		<result column="warehouse_id" property="warehouseId" />
+		<id column="warehouse_id" property="warehouseId" />
     	<result column="warehouse_name" property="warehouseName" />
     	<result column="warehouse_address" property="warehouseAddress" />
 	</collection>
   </resultMap>
-
 </mapper>
-
-

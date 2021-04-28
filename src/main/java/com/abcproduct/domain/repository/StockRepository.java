@@ -3,17 +3,25 @@ package com.abcproduct.domain.repository;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import com.abcproduct.domain.model.Stock;
 
 @Mapper
 public interface StockRepository {
 
+	// GET
 	public List<Stock> selectStockList();
 
-	public List<Stock> selectStock(@PathVariable("productId") int productId);
+	// ID GET
+	public List<Stock> selectStock(int productId);
 
-	public List<Stock> stockSearch(@PathVariable("keyword") String keyword);
+	// SEARCH
+	public List<Stock> stockSearch(String keyword);
+
+	// DELETE
+	public int deleteStock(int productId);
+
+	// POST
+	public int insertStock(Stock stock);
 
 }

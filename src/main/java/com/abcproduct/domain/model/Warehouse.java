@@ -9,7 +9,7 @@ import lombok.ToString;
 @Setter
 public class Warehouse {
 
-    private Integer warehouseId;
+    private int warehouseId;
     private String warehouseName;
     private String warehouseAddress;
 

@@ -9,8 +9,8 @@ import lombok.ToString;
 @Setter
 public class Product {
 
-    private Integer productId;
+    private int productId;
     private String productName;
-    private Integer productPrice;
+    private int productPrice;
 
 }

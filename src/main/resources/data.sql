@@ -15,7 +15,6 @@ VALUES
 (25, 9001, 500,'false','false'),(26, 9002, 200, 'false', 'false'), (27, 9003, 300,'false','false'),
 (28, 9001, 550,'false','false'),(29, 9002, 100, 'false', 'false'), (30, 9003, 200,'false','false')
 
-
 DELETE FROM product;
 INSERT INTO
  product(product_id, product_name, product_price)
@@ -31,6 +30,4 @@ DELETE FROM warehouse;
 INSERT INTO
  warehouse(warehouse_id, warehouse_name, warehouse_address)
 VALUES
-(9001,N'東京倉庫',N'東京都千代田区1-1-1'),
-(9002,N'横浜倉庫',N'神奈川横浜市2-2-2'),
-(9003,N'吉祥寺倉庫',N'東京都武蔵野市3-3-3')
+(9001,N'東京倉庫',N'東京都千代田区1-1-1'),(9002,N'横浜倉庫',N'神奈川横浜市2-2-2'),(9003,N'吉祥寺倉庫',N'東京都武蔵野市3-3-3')
